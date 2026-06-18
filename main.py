@@ -1,8 +1,7 @@
 import tkinter as tk
+from tkinter import messagebox
 import json
 import os
-import random
-import time
 import ctypes
 from ctypes import wintypes
 from pynput import mouse, keyboard
@@ -212,6 +211,9 @@ class DiscordPet:
         self.root.after(100, self.update_position)
 
 if __name__ == "__main__":
+    if not os.path.exists(SAVE_FILE):
+        messagebox.showinfo("起動完了！", message="Discordペットが起動しました！\nDiscordウィンドウ内の右下に表示されているはずです。\nペットはドラッグアンドドロップで場所を移動できます。")
+
     root = tk.Tk()
     image_file = "assets/pet.png"
     
